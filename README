@@ -1,0 +1,16 @@
+This is a simple program to look for flash files that are currently
+being streamed in a browser/plugin-container but have been deleted from
+the filesystem.
+
+It makes use of the /proc/pid/fd directory to look for such files and
+then open them so you can get access to the streams.
+
+e.g
+
+     $ ./find.flv
+     Process 7343 is a plugin-containe
+     [7343]  /tmp/FlashXXlP0Rue (deleted)
+     Opened /proc/7497/fd/5
+
+You can then copy the file /proc/7497/fd/5 to someplace else (once the
+stream has finished) to have a copy of it.
