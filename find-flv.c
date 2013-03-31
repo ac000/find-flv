@@ -91,6 +91,8 @@ void scan_procfs(void)
 		 */
 		snprintf(comm, PATH_MAX, "/proc/%s/comm", entry->d_name);
 		fp = fopen(comm, "r");
+		if (!fp)
+			continue;
 		fscanf(fp, "%15s", task);
 		fclose(fp);
 		if (strstr(task, "plugin-contain")) {
