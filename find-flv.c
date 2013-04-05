@@ -29,7 +29,7 @@ static int nr_flvs;
  * Look through a plugin-container processes /proc/pid/fd directory for
  * deleted flash files.
  */
-void scan_plugin_dir(const char *proc)
+static void scan_plugin_dir(const char *proc)
 {
 	DIR *dir;
         struct dirent64 *entry;
@@ -67,7 +67,7 @@ void scan_plugin_dir(const char *proc)
 /*
  * Look through /proc/pid directories for plugin-container processes.
  */
-void scan_procfs(void)
+static void scan_procfs(void)
 {
 	DIR *dir;
 	struct dirent64 *entry;
